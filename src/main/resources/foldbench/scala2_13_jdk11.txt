@@ -37,3 +37,8 @@ sbt:scala-benchmarks>
 specs:
 intel i7-4790k @ 4.8Ghz
 32 GB RAM
+
+
+```sbt
+jmh:run -t 1 -f 1 -wi 1 -i 1 .*FoldBench.*
+```
