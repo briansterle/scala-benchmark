@@ -35,3 +35,8 @@ Total time: 501 s, completed Dec 5, 2021, 1:58:25 PM
 specs:
 intel i7-4790k @ 4.8Ghz
 32 GB RAM
+
+
+```sbt
+jmh:run -t 1 -f 1 -wi 1 -i 1 .*FoldBench.*
+```

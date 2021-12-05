@@ -1,0 +1,35 @@
+
+Benchmark                  Mode  Cnt    Score   Error  Units
+FoldBench.arrayFoldLeft    avgt         2.146          us/op
+FoldBench.arrayFoldRight   avgt         2.146          us/op
+FoldBench.arraySum         avgt        44.835          us/op
+FoldBench.arrayWhile       avgt         2.157          us/op
+FoldBench.estreamFoldLeft  avgt        72.693          us/op
+FoldBench.ilistFoldLeft    avgt        19.410          us/op
+FoldBench.ilistFoldRight   avgt        44.455          us/op
+FoldBench.ilistTailrec     avgt        17.985          us/op
+FoldBench.iterFoldLeft     avgt        27.753          us/op
+FoldBench.iterFoldRight    avgt        63.263          us/op
+FoldBench.iterWhile        avgt        26.871          us/op
+FoldBench.listFoldLeft     avgt        27.446          us/op
+FoldBench.listFoldRight    avgt        44.723          us/op
+FoldBench.listSum          avgt        44.775          us/op
+FoldBench.listTailrec      avgt        19.963          us/op
+FoldBench.listWhile        avgt        17.981          us/op
+FoldBench.streamFoldLeft   avgt        58.807          us/op
+FoldBench.streamFoldRight  avgt       106.477          us/op
+FoldBench.streamSum        avgt        46.754          us/op
+FoldBench.streamTailrec    avgt        81.354          us/op
+FoldBench.streamWhile      avgt        37.532          us/op
+FoldBench.vectorFoldLeft   avgt        28.465          us/op
+FoldBench.vectorFoldRight  avgt        60.290          us/op
+FoldBench.vectorSum        avgt        41.666          us/op
+FoldBench.vectorWhile      avgt        16.693          us/op
+
+specs:
+intel i7-4790k @ 4.8Ghz
+32 GB RAM
+
+```sbt
+jmh:run -t 1 -f 1 -wi 1 -i 1 .*FoldBench.*
+```

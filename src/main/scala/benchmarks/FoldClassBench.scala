@@ -18,7 +18,7 @@ class FoldClassBench {
   var ilist: IList[Pair] = _
   var vector: Vector[Pair] = _
   var array: Array[Pair] = _
-  var stream: Stream[Pair] = _
+  var stream: LazyList[Pair] = _
 
   @Setup
   def setup: Unit = {
@@ -26,7 +26,7 @@ class FoldClassBench {
     ilist = IList.fromList(list)
     vector = Vector.range(1, 10000).map(n => Pair(n, n))
     array = Array.range(1, 10000).map(n => Pair(n, n))
-    stream = Stream.range(1, 10000).map(n => Pair(n, n))
+    stream = LazyList.range(1, 10000).map(n => Pair(n, n))
   }
 
   @Benchmark
@@ -125,7 +125,7 @@ class FoldClassBench {
   def streamFoldRight: Pair = stream.foldRight(Pair(0,0))(_ + _)
   @Benchmark
   def streamTailrec: Pair = {
-    @tailrec def work(l: Stream[Pair], acc: Pair): Pair = l match {
+    @tailrec def work(l: LazyList[Pair], acc: Pair): Pair = l match {
       case _ if l.isEmpty => acc
       case h #:: rest => work(rest, h + acc)
     }
@@ -135,7 +135,7 @@ class FoldClassBench {
   @Benchmark
   def streamWhile: Pair = {
     var i: Pair = Pair(0,0)
-    var l: Stream[Pair] = stream
+    var l: LazyList[Pair] = stream
 
     while (!l.isEmpty) {
       i = i + l.head
