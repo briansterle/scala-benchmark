@@ -1,4 +1,4 @@
-name := """scala-benchmarks"""
+name := """scala-benchmark"""
 
 version := "1.0.0"
 
@@ -16,11 +16,12 @@ scalacOptions := Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.scalaz" %% "scalaz-core" % "7.2.27"
+  //  "org.scalaz" %% "scalaz-core" % "7.2.27"
+  // https://mvnrepository.com/artifact/org.scalaz/scalaz-core
+  "org.scalaz" %% "scalaz-core" % "7.4.0-M9"
 )
-Def.settings(
-  Global / onChangedBuildSource := ReloadOnSourceChanges
-)
+
+Global / onChangedBuildSource := ReloadOnSourceChanges
 
 /* To run benchmarks:
     jmh:run -t 1 -f 1 -wi 5 -i 5 .*Bench.*
