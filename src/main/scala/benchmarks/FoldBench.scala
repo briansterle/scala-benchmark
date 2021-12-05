@@ -23,12 +23,13 @@ class FoldBench {
 
   @Setup
   def setup: Unit = {
-    list = List.range(1, 10000)
+    val size = 10000
+    list = List.range(1, size)
     ilist = IList.fromList(list)
-    vector = Vector.range(1, 10000)
-    array = Array.range(1, 10000)
-    stream = LazyList.range(1, 10000)
-    estream = EStream.range(1, 10000)
+    vector = Vector.range(1, size)
+    array = Array.range(1, size)
+    stream = LazyList.range(1, size)
+    estream = EStream.range(1, size)
   }
 
   @Benchmark
