@@ -1,0 +1,39 @@
+[info] # Run complete. Total time: 00:08:38
+[info] REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+[info] why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+[info] experiments, perform baseline and negative tests that provide experimental control, make sure
+[info] the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+[info] Do not assume the numbers tell you what you want them to tell.
+
+[info] Benchmark                  Mode  Cnt    Score   Error  Units
+[info] FoldBench.arrayFoldLeft    avgt         2.324          us/op
+[info] FoldBench.arrayFoldRight   avgt         2.337          us/op
+[info] FoldBench.arraySum         avgt        67.812          us/op
+[info] FoldBench.arrayWhile       avgt         2.356          us/op
+[info] FoldBench.estreamFoldLeft  avgt       134.806          us/op
+[info] FoldBench.ilistFoldLeft    avgt        23.392          us/op
+[info] FoldBench.ilistFoldRight   avgt        55.346          us/op
+[info] FoldBench.ilistTailrec     avgt        25.423          us/op
+[info] FoldBench.iterFoldLeft     avgt        49.363          us/op
+[info] FoldBench.iterFoldRight    avgt        85.059          us/op
+[info] FoldBench.iterWhile        avgt        26.003          us/op
+[info] FoldBench.listFoldLeft     avgt        36.787          us/op
+[info] FoldBench.listFoldRight    avgt        55.347          us/op
+[info] FoldBench.listSum          avgt        48.636          us/op
+[info] FoldBench.listTailrec      avgt        20.632          us/op
+[info] FoldBench.listWhile        avgt        27.028          us/op
+[info] FoldBench.streamFoldLeft   avgt        44.121          us/op
+[info] FoldBench.streamFoldRight  avgt       168.753          us/op
+[info] FoldBench.streamSum        avgt       102.575          us/op
+[info] FoldBench.streamTailrec    avgt       121.544          us/op
+[info] FoldBench.streamWhile      avgt        66.773          us/op
+[info] FoldBench.vectorFoldLeft   avgt        41.927          us/op
+[info] FoldBench.vectorFoldRight  avgt        64.997          us/op
+[info] FoldBench.vectorSum        avgt        46.753          us/op
+[info] FoldBench.vectorWhile      avgt        22.648          us/op
+[success] Total time: 530 s (08:50), completed Dec 5, 2021, 2:42:40 PM
+sbt:scala-benchmarks>
+
+specs:
+intel i7-4790k @ 4.8Ghz
+32 GB RAM
