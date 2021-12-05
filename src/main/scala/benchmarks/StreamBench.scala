@@ -11,7 +11,7 @@ import scalaz.Scalaz._
 @BenchmarkMode(Array(Mode.AverageTime))
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Thread)
-class StreamBench {
+class LazyListBench {
 
   var list1: List[Int] = _
   var list2: List[Int] = _
@@ -21,8 +21,8 @@ class StreamBench {
   var vec2: Vector[Int] = _
   var arr1: Array[Int] = _
   var arr2: Array[Int] = _
-  var str1: Stream[Int] = _
-  var str2: Stream[Int] = _
+  var str1: LazyList[Int] = _
+  var str2: LazyList[Int] = _
   var estr1: EphemeralStream[Int] = _
   var estr2: EphemeralStream[Int] = _
 
@@ -36,10 +36,10 @@ class StreamBench {
     vec2 = Vector.range(10000, 1, -1)
     arr1 = Array.range(1, 10000)
     arr2 = Array.range(10000, 1, -1)
-    str1 = Stream.range(1, 10000)
-    str2 = Stream.range(10000, 1, -1)
+    str1 = LazyList.range(1, 10000)
+    str2 = LazyList.range(10000, 1, -1)
     estr1 = EphemeralStream.range(1, 10000)
-    estr2 = EphemeralStream.fromStream(str2)
+    estr2 = EphemeralStream.fromStream(str2.toStream)
   }
 
   @Benchmark
@@ -52,11 +52,11 @@ class StreamBench {
   def streamSort: Int = str2.map(_ + 1).filter(_ % 2 == 0).map(_ * 2).sorted.head
 
   @Benchmark
-  def ephemeralStreamMax: Option[Int] = estr1.map(_ + 1).filter(_ % 2 == 0).map(_ * 2).maximum
+  def ephemeralLazyListMax: Option[Int] = estr1.map(_ + 1).filter(_ % 2 == 0).map(_ * 2).maximum
   @Benchmark
-  def ephemeralStreamHead: Option[Int] = estr1.map(_ + 1).filter(_ % 2 == 0).map(_ * 2).headOption
+  def ephemeralLazyListHead: Option[Int] = estr1.map(_ + 1).filter(_ % 2 == 0).map(_ * 2).headOption
   @Benchmark
-  def ephemeralStreamReverse: Option[Int] = estr1.reverse.headOption
+  def ephemeralLazyListReverse: Option[Int] = estr1.reverse.headOption
 
   @Benchmark
   def iterMax: Int = list1.iterator.map(_ + 1).filter(_ % 2 == 0).map(_ * 2).max
