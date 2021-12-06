@@ -2,17 +2,18 @@ name := """scala-benchmark"""
 
 version := "1.0.0"
 
-scalaVersion := "2.13.7"
+//scalaVersion := "2.13.7"
+scalaVersion := "3.1.0"
 
 scalacOptions := Seq(
-  "-opt:l:inline",
-  "-opt-inline-from:**",
+//  "-opt:l:inline",
+//  "-opt-inline-from:**",
   "-deprecation",
 //  "-Ypartial-unification",
-  "-Ywarn-value-discard",
+//  "-Ywarn-value-discard",
 //  "-Ywarn-unused-import",
-  "-Ywarn-dead-code",
-  "-Ywarn-numeric-widen"
+//  "-Ywarn-dead-code",
+//  "-Ywarn-numeric-widen"
 )
 
 libraryDependencies ++= Seq(
